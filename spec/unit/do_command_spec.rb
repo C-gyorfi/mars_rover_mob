@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe DoCommand do
   class PositionGatewayFake
     attr_accessor :position
@@ -27,17 +29,13 @@ describe DoCommand do
 
     do_command = DoCommand.new(command_gateways)
     do_command.execute(
-      {
-        commands: [:f]
-      }
+      commands: [:f]
     )
 
     expect(position_fake.position).to eq(
-      {
-        position_x: 0,
-        position_y: 1,
-        direction: :north
-      }
+      position_x: 0,
+      position_y: 1,
+      direction: :north
     )
   end
 
@@ -55,17 +53,13 @@ describe DoCommand do
 
     do_command = DoCommand.new(command_gateways)
     do_command.execute(
-      {
-        commands: [:f, :f]
-      }
+      commands: %i[f f]
     )
 
     expect(position_fake.position).to eq(
-      {
-        position_x: 0,
-        position_y: 2,
-        direction: :north
-      }
+      position_x: 0,
+      position_y: 2,
+      direction: :north
     )
   end
 
@@ -83,17 +77,13 @@ describe DoCommand do
 
     do_command = DoCommand.new(command_gateways)
     do_command.execute(
-      {
-        commands: [:f, :f, :f]
-      }
+      commands: %i[f f f]
     )
 
     expect(position_fake.position).to eq(
-      {
-        position_x: 0,
-        position_y: 3,
-        direction: :north
-      }
+      position_x: 0,
+      position_y: 3,
+      direction: :north
     )
   end
 
@@ -111,17 +101,13 @@ describe DoCommand do
 
     do_command = DoCommand.new(command_gateways)
     do_command.execute(
-      {
-        commands: [:f]
-      }
+      commands: [:f]
     )
 
     expect(position_fake.position).to eq(
-      {
-        position_x: 0,
-        position_y: 2,
-        direction: :north
-      }
+      position_x: 0,
+      position_y: 2,
+      direction: :north
     )
   end
 end
